@@ -1,4 +1,4 @@
-import "dotenv/config.js"
+import "dotenv/config"
 import { db } from "."
 import { categories,promos,projects } from "./schema"
 
@@ -13,18 +13,20 @@ async function main() {
     .insert(promos)
     .values({
       name: "Frida",
-      dateStart: new Date("2025-09-01").toISOString(),
+      dateStart: "2025-05-28",
     }).returning(); // pr recup l'id
 
     await db.insert(projects).values({
         title: "Quizz Capitales",
         urlGitHub: "https://github.com/Abdelcrks/Quizz-Capitale",
         urlDemo: "https://quizz-capitales-demo.vercel.app",
-        urlImage: "https://image-url.com/quizz.png",
-        categoryId: 1,        // ou une vraie id récupérée avant
+        urlImage: "/projects/frida/quizz/quizz-abdel.png",
+        categoryId: 1,        
         promoId: promo.id,
     })
-    console.log("✅ Seed terminé");
+    console.log("Seed terminé");
 
 }
+
+main()
 
