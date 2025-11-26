@@ -24,6 +24,9 @@ interface Project {
   
 
 export const AllCategories = ({categories, projects}:AllCategoriesProps) => {
+    
+
+
     return (
         <div className="space-y-8">
             {categories.map((category) => {
@@ -32,13 +35,13 @@ export const AllCategories = ({categories, projects}:AllCategoriesProps) => {
                 )
 
                 return (
-                    <section key={category.id} className="py-10">
+                    <section key={category.id} className="p-10">
                         <h2 className="text-2xl font-semibold">{category.name} ({})</h2>
 
-                        <div className="mt-4">
+                        <div className="mt-4 p-10  grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
                             {projectsOfCategory.map((project) => (
                                 <div key={project.id}>
-                                    {/* <h3>{project.title}</h3>
+                                    {/* <h3>{project.title}</hb 3>
                                     <img className="w-xs"
                                     src={project.urlImage}
                                     />
