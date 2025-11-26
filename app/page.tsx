@@ -1,3 +1,4 @@
+
 import { db } from "@/src/db";
 import { categories, projects } from "@/src/db/schema";
 import { AllCategories } from "./components/AllCategories";
