@@ -15,6 +15,7 @@ interface Project {
     promoId: number | null;
     createdAt: string;
     publishedAt: string | null;
+    slug: string;
   }
   
   export interface AllCategoriesProps {
@@ -48,7 +49,7 @@ export const AllCategories = ({categories, projects}:AllCategoriesProps) => {
                                     <p >{project.urlGitHub}</p>
                                     <p>{project.urlDemo}</p>
                                     <p>{project.publishedAt}</p> */}
-                                    <ProjectCard project={project}/>
+                                    <ProjectCard project={project} />
                                 </div>
                             ))}
                         
