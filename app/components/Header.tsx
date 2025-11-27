@@ -5,7 +5,7 @@ import { ProjectForm } from "./ProjectForm";
 
 
 
-export const Header = () => {
+export const Header = ({onClose}) => {
     const [showForm, setShowForm] = useState(false);
 
     return (
@@ -26,7 +26,7 @@ export const Header = () => {
             </header>
             {showForm && (
                 <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/60">
-                <ProjectForm />
+                <ProjectForm onClose={() => setShowForm(false)} />
                 </div>
             )}
         </div>
