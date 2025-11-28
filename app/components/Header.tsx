@@ -3,9 +3,9 @@ import Link from "next/link"
 import { useState } from "react";
 import { ProjectForm } from "./ProjectForm";
 
-type HeaderProps = {
-    onClose: () => void
-}
+// type HeaderProps = {
+//     onClose: () => void
+// }
 
 export const Header = () => {
     const [showForm, setShowForm] = useState(false);
