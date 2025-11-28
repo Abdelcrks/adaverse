@@ -28,7 +28,7 @@ export async function createProject(formData: FormData): Promise<CreateProjectRe
   .where(eq(projects.title, title))
   .limit(1);
     
-  if (existing) {
+  if (existing.length > 0) {
     return {
       success: false,
       error: "Un projet avec ce titre existe déjà.",
