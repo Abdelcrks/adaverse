@@ -24,9 +24,11 @@ export default function RootLayout({
     <html lang="en">
       <body className={`${poppins.variable} bg-[linear-gradient(356deg,rgba(0,0,0,1)_0%,rgba(78,56,56,1)_100%,rgba(0,0,0,1)_100%)] text-white max-w-6xl mx-auto`}>
         <Header/>
-        <div className="min-h-screen flex justify-center">
+        <main className="min-h-screen w-full flex justify-center">
+        <div className="w-full max-w-6xl mx-auto">
           {children}
         </div>
+        </main>
       </body>
     </html>
   );
