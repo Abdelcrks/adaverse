@@ -86,7 +86,7 @@ export const ProjectForm = ({ onClose }: { onClose: () => void }) => {
                 <h1 className="text-2xl font-semibold">Publier un projet</h1>
 
                 <div className="w-full flex flex-col gap-1">
-                    <label htmlFor="title">Titre</label>
+                    <label htmlFor="title">Titre <span className="text-red-500">*</span></label>
                     <input type="text" id="title" name="title" placeholder="Quizz Marvel" required
                         className="w-full border border-gray-300 rounded-lg px-4 py-2"
                         value={formProject.title}
@@ -96,7 +96,7 @@ export const ProjectForm = ({ onClose }: { onClose: () => void }) => {
                 </div>
 
                 <div className="w-full flex flex-col gap-1">
-                    <label htmlFor="github">Lien Github</label>
+                    <label htmlFor="github">Lien Github <span className="text-red-500">*</span></label>
                     <input type="url" id="github" name="github" placeholder="www.github.com" required
                         className="w-full border border-gray-300 rounded-lg px-4 py-2"
                         value={formProject.github}
@@ -116,7 +116,7 @@ export const ProjectForm = ({ onClose }: { onClose: () => void }) => {
                 </div>
 
                 <div className="w-full flex flex-col gap-1">
-                    <label htmlFor="promo">Promo</label>
+                    <label htmlFor="promo">Promo <span className="text-red-500">*</span></label>
                     <select name="promo" id="promo" required
                         className="w-full border border-gray-300 rounded-lg px-4 py-2"
                         value={formProject.promo}
@@ -130,7 +130,7 @@ export const ProjectForm = ({ onClose }: { onClose: () => void }) => {
                 </div>
 
                 <div className="w-full flex flex-col gap-1">
-                    <label htmlFor="theme">Catégorie</label>
+                    <label htmlFor="theme">Catégorie <span className="text-red-500">*</span></label>
                     <select name="theme" id="theme" required
                         className="w-full border border-gray-300 rounded-lg px-4 py-2"
                         value={formProject.theme}
