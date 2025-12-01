@@ -42,6 +42,9 @@ export async function createProject(formData: FormData): Promise<CreateProjectRe
     .normalize("NFD")
     .replace(/[\u0300-\u036f]/g, "");
 
+  
+  const thumbnailUrl = `${github}/blob/main/thumbnail.png?raw=true`
+
   await db.insert(projects).values({
     title,
     slug,
@@ -49,6 +52,7 @@ export async function createProject(formData: FormData): Promise<CreateProjectRe
     urlDemo: demo,
     promoId: Number(promo),
     categoryId: Number(theme),
+    urlImage: thumbnailUrl,
   });
 
   return { success: true };
