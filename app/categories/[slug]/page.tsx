@@ -1,7 +1,7 @@
 import { db } from "@/src/db";
 import { eq } from "drizzle-orm";
 import { categories } from "@/src/db/schema";
-import { projects } from "@/src/db/schema";
+import { projects, promos} from "@/src/db/schema";
 import { ProjectCard } from "@/app/components/ProjectCard";
 
 export default async function CategoriePage ({
@@ -25,8 +25,21 @@ export default async function CategoriePage ({
         )
     }
     const projectsOfCategory = await db
-    .select()
+    .select({
+        id: projects.id,
+      title: projects.title,
+      slug: projects.slug,
+      urlGitHub: projects.urlGitHub,
+      urlDemo: projects.urlDemo,
+      urlImage: projects.urlImage,
+      categoryId: projects.categoryId,
+      promoId: projects.promoId,
+      createdAt: projects.createdAt,
+      publishedAt: projects.publishedAt,
+      promoName: promos.name, // 🔥 on récupère le nom de la promo
+    })
     .from(projects)
+    .innerJoin(promos, eq(promos.id , projects.promoId))
     .where(eq(projects.categoryId, categorie.id))
 
 
