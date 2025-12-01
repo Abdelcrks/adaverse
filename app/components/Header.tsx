@@ -22,7 +22,7 @@ export const Header = ({categories} : {categories : Category[]}) => {
     const handleChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
         const value = e.target.value;
         if (!value) return;
-        router.push(`/categories/${value}`); // value = name (quizz, dataviz…)
+        router.push(`/categories/${value}`); // value = name 
       };
 
     return (
