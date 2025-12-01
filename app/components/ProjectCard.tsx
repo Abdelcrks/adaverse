@@ -16,7 +16,7 @@ interface projectCardProps {
 
 export const ProjectCard = ({project}:{project:projectCardProps}) => {
 
-     const image = project.urlImage
+     const image = project.urlImage ?? "/images/default-thumbnail.png"
     return (
         <Link href={`/projects/${project.slug}`} className="block w-full max-w-2xl">
             <div className="">
