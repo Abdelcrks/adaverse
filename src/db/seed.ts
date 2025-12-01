@@ -22,6 +22,7 @@ async function main() {
         urlGitHub: "https://github.com/Abdelcrks/Quizz-Capitale",
         urlDemo: "https://quizz-capitales-demo.vercel.app",
         urlImage: "/projects/frida/quizz/quizz-abdel.png",
+        // urlImage : `${urlGitHub}/blob/main/thumbnail.png?raw=true`,
         categoryId: 1,        
         promoId: promo.id,
     })
