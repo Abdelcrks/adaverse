@@ -27,3 +27,43 @@ body {
   font-family: Arial, Helvetica, sans-serif;
 } */
 
+/* === Carrousel auto-scroll === */
+
+.auto-scroll-container {
+  overflow: hidden;
+}
+
+.auto-scroll-track {
+  display: inline-flex;
+  will-change: transform;
+  animation: scroll-horizontal 30s linear infinite;
+}
+
+/* Pause au survol */
+.auto-scroll-container:hover .auto-scroll-track {
+  animation-play-state: paused;
+}
+
+@keyframes scroll-horizontal {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .auto-scroll-track {
+    animation: none;
+    transform: translateX(0);
+  }
+}
+
+
+@media (max-width: 640px) {
+  .auto-scroll-track {
+    animation: none;
+    transform: translateX(0);
+  }
+}
