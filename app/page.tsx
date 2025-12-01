@@ -3,6 +3,8 @@ import { db } from "@/src/db";
 import { categories, projects, promos } from "@/src/db/schema";
 import { AllCategories } from "./components/AllCategories";
 import { isNotNull, eq, desc } from "drizzle-orm";
+import { Hero } from "./components/Hero";
+
 
 
 
@@ -31,6 +33,7 @@ export default async function ProjectsPage() {
 
 
     <main>
+      <Hero></Hero>
       <AllCategories
         categories={allCategories}
         projects={allProjects}
