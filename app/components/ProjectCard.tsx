@@ -19,7 +19,7 @@ export const ProjectCard = async ({project}:{project:projectCardProps}) => {
      const image = project.urlImage ?? "/images/default-thumbnail.png"
 
 
-     const baseUrl = process.env.NEXT_PUBLIC_BASE_URL ?? "http://localhost:3000";
+     const baseUrl = process.env.NEXT_PUBLIC_BASE_URL;
 
      const githubInfo = await fetch(`${baseUrl}/api/github-info?url=${project.urlGitHub}`,
        { next: { revalidate: 3600 } }
