@@ -36,7 +36,7 @@ export default async function RootLayout({
         createProject={createProject}
         />
         <main className="min-h-screen w-full">
-        <div className="w-full max-w-6xl mx-auto">
+        <div className="w-full max-w-6xl mx-auto px-4 sm:px-6 lg:px-0">
           {children}
         </div>
         </main>
