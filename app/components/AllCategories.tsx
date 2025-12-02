@@ -41,37 +41,20 @@ export const AllCategories = ({ categories, projects }: AllCategoriesProps) => {
                     return (
                         <section key={category.id} className="px-4 sm:px-6 lg:px-8">
                             <div className="mb-4 flex items-center gap-3">
-                                <div className="inline-flex items-center gap-2 rounded-full border border-violet-500/40 bg-zinc-900/70 px-4 py-1">
-                                    <span className="h-1.5 w-1.5 rounded-full bg-violet-400" />
+                                <div className="inline-flex items-center gap-2 rounded-full border border-violet-500/40 bg-black dark:bg-white sm:px-5 sm:py-1 lg:px-10 lg:py-3">
                                     <Link
                                         href={`/categories/${category.name}`}
-                                        className="text-sm font-medium tracking-wide uppercase text-zinc-100 hover:text-violet-300 transition-colors"
+                                        className="text-sm font-medium tracking-wide uppercase dark:text-black text-white hover:text-violet-300 transition-colors"
                                     >
                                         {category.name}
                                     </Link>
-                                    <span className="text-xs text-zinc-400">
+                                    <span className="text-xs text-zinc-200 dark:text-zinc-400">
                                         {projectsOfCategory.length} projet
                                         {projectsOfCategory.length > 1 && "s"}
                                     </span>
                                 </div>
                             </div>
-
-                            {/* <div className="rounded-2xl border border-zinc-800/70 bg-zinc-950/80 px-4 py-5 sm:px-6 sm:py-6">
-                    <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
-                      {projectsOfCategory.map((project) => (
-                        <div key={project.id}>
-                          <ProjectCard project={project} />
-                        </div>
-                      ))}
-    
-                      {projectsOfCategory.length === 0 && (
-                        <p className="text-sm text-zinc-500">
-                          Aucun projet pour cette catégorie pour l'instant.
-                        </p>
-                      )}
-                    </div>
-                  </div> */}
-                            <div className="rounded-2xl border border-zinc-800/70 bg-zinc-950/80 px-4 py-5 sm:px-6 sm:py-6">
+                            <div className="rounded-2xl border border-zinc-200 dark:border-zinc-800/70  bg-white/90 dark:bg-zinc-950/80 shadow-xl px-4 py-5 sm:px-6 sm:py-6">
                                 {projectsOfCategory.length === 0 ? (
                                     <p className="text-sm text-zinc-500">
                                         Aucun projet pour cette catégorie pour l&apos;instant.
