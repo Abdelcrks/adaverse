@@ -13,22 +13,28 @@ export const AutoScrollRow = ({ children }: { children: ReactNode }) => {
         pb-3
       "
     >
+      {/* Dégradé gauche - caché en mobile */}
       <div
         className="
           pointer-events-none
-          absolute inset-y-0 left-0 w-10
+          absolute inset-y-0 left-0
+          w-10
           bg-linear-to-r from-white to-transparent
           dark:from-black
           z-20
+          hidden sm:block
         "
       />
+      {/* Dégradé droit - caché en mobile */}
       <div
         className="
           pointer-events-none
-          absolute inset-y-0 right-0 w-10
+          absolute inset-y-0 right-0
+          w-10
           bg-linear-to-l from-white to-transparent
           dark:from-black
           z-20
+          hidden sm:block
         "
       />
 

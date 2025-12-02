@@ -54,7 +54,7 @@ export const AllCategories = ({ categories, projects }: AllCategoriesProps) => {
                                     </span>
                                 </div>
                             </div>
-                            <div className="rounded-2xl border border-zinc-200 dark:border-zinc-800/70  bg-white/90 dark:bg-zinc-950/80 shadow-xl px-4 py-5 sm:px-6 sm:py-6">
+                            <div className="rounded-2xl border border-zinc-200 dark:border-zinc-800/70  bg-white/90 dark:bg-zinc-950/80 shadow-2xl px-4 py-5 sm:px-6 sm:py-6">
                                 {projectsOfCategory.length === 0 ? (
                                     <p className="text-sm text-zinc-500">
                                         Aucun projet pour cette catégorie pour l'instant.
