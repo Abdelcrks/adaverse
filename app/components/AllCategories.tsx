@@ -41,7 +41,7 @@ export const AllCategories = ({ categories, projects }: AllCategoriesProps) => {
                     return (
                         <section key={category.id} className="px-4 sm:px-6 lg:px-8">
                             <div className="mb-4 flex items-center gap-3">
-                                <div className="inline-flex items-center gap-2 rounded-full border border-violet-500/40 bg-black dark:bg-white sm:px-5 sm:py-1 lg:px-10 lg:py-3">
+                                <div className="inline-flex items-center gap-2 rounded-full border border-violet-500/40 bg-black dark:bg-white sm:px-7 sm:py-3 lg:px-10 lg:py-3">
                                     <Link
                                         href={`/categories/${category.name}`}
                                         className="text-sm font-medium tracking-wide uppercase dark:text-black text-white hover:text-violet-300 transition-colors"
