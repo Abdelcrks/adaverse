@@ -38,7 +38,7 @@ export const Header = ({ categories }: { categories: Category[] }) => {
   <Link href={"/"} className="text-4xl font-semibold text-black dark:text-white">
     ada
     <span
-      className="text-black dark:bg-[linear-gradient(135deg,#6A00FF_0%,#B245FC_40%,#00A8FF_100%)] dark:bg-clip-text dark:text-transparent"
+      className=" bg-[linear-gradient(135deg,#6A00FF_0%,#B245FC_40%,#00A8FF_100%)] bg-clip-text text-transparent"
     >
       VERSE
     </span>
