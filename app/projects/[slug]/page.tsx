@@ -37,6 +37,11 @@ export default async function ProjectPage({
 
   console.log("Slug", slug);
 
+  const baseUrl = process.env.NEXT_PUBLIC_BASE_URL;
+  const githubInfo = await fetch(
+    `${baseUrl}/api/github-info?url=${project.urlGitHub}`,
+    { next: { revalidate: 3600 } }
+  ).then(res => res.json());
 
 
   return (
@@ -46,6 +51,11 @@ export default async function ProjectPage({
           <h1 className="text-6xl md:text-6xl font-semibold">
             {project.title}
           </h1>
+            {githubInfo?.language && (
+              <p className="">
+                Langage principal : <span className="font-semibold ">{githubInfo.language}</span>
+              </p>
+                )}
             <span className="lg:text-lg sm:text-sm   text-black dark:text-zinc-400">
               Publié le {project.publishedAt}
               <span className="ml-10 inline-flex items-center justify-center px-3 py-1 bg-[linear-gradient(135deg,#6A00FF_0%,#B245FC_40%,#00A8FF_100%)] text-black dark:text-white lg:text-lg sm:text-sm font-semibold rounded-md">
@@ -70,9 +80,32 @@ export default async function ProjectPage({
           )}
         </section>
         <section>
-          <div className="relative w-full h-100 md:h-150 md:w-200 overflow-hidden rounded-2xl shadow-2xl">
-            <div className="absolute inset-0 bg-cover bg-center "style={{ backgroundImage: `url(${project.urlImage})` }}/>
-          </div>
+        <section>
+            <div className="relative w-full max-w-4xl mx-auto overflow-hidden rounded-2xl shadow-2xl bg-black/20">
+              <img
+                src={project.urlImage ?? "/images/default-thumbnail.png"}
+                alt={`Capture du projet ${project.title}`}
+                className="w-full h-auto object-contain"
+              />
+            </div>
+          </section>
+          {githubInfo?.description && (
+              <p className="text-black-700  text-center dark:text-white leading-relaxed mt-6">
+                {githubInfo.description}
+              </p>
+            )}
+            {githubInfo?.readme && (
+              <section className="relative mt-10 p-6 rounded-2xl overflow-hidden">
+              <div className="absolute inset-0 pointer-events-none bg-[radial-gradient(circle_at_center,rgba(106,0,255,0.25),transparent_70%)] blur-2xl"></div>
+              <div className="relative  bg-black/10 dark:bg-white/10 backdrop-blur-md p-6 rounded-xl border border-white/10">
+                <h2 className="text-xl font-semibold mb-4">Aperçu du README</h2>
+                <pre className="whitespace-pre-wrap text-sm leading-relaxed text-black dark:text-white">
+                  {githubInfo.readme.slice(0, 800)}…
+                </pre>
+              </div>
+
+            </section>
+            )}
         </section>
       </div>
     </main>
