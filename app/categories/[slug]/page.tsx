@@ -1,8 +1,9 @@
 import { db } from "@/src/db";
-import { eq } from "drizzle-orm";
+import { and, eq, isNotNull } from "drizzle-orm";
 import { categories } from "@/src/db/schema";
 import { projects, promos} from "@/src/db/schema";
 import { ProjectCard } from "@/app/components/ProjectCard";
+
 
 export default async function CategoriePage ({
     params,
@@ -40,7 +41,7 @@ export default async function CategoriePage ({
     })
     .from(projects)
     .innerJoin(promos, eq(promos.id , projects.promoId))
-    .where(eq(projects.categoryId, categorie.id))
+    .where(and(eq(projects.categoryId, categorie.id),isNotNull(projects.publishedAt)))
 
 
     

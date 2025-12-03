@@ -52,6 +52,7 @@ export async function createProject(formData: FormData): Promise<CreateProjectRe
     promoId: Number(promo),
     categoryId: Number(theme),
     urlImage: thumbnailUrl,
+    publishedAt: null
   });
 
   return { success: true };
