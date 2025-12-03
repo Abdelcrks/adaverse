@@ -45,21 +45,20 @@ export const ProjectForm = ({ onClose, createProject }: ProjectFormProps) => {
             <form 
                 action={handleAction}
                 className="
-              relative 
-              mt-10
-              w-full max-w-md 
-              lg:p-20 p-12 md:15
-              bg-white text-black 
-              flex flex-col items-center gap-6 
-              rounded-2xl shadow-xl
-            ">
-                <button type="button" className="absolute left-4 top-4 text-red-600 text-xl cursor-pointer" onClick={onClose}>❌</button>
-                <h1 className="text-2xl font-semibold">Publier un projet</h1>
+                relative mt-10 w-full max-w-md lg:p-20 p-12 md:15
+                bg-gray-800 text-white 
+                flex flex-col items-center gap-6 
+                rounded-2xl shadow-xl overflow-hidden z-10
+                before:w-24 before:h-24 before:absolute before:bg-purple-600 before:rounded-full before:-z-10 before:blur-2xl
+                after:w-32 after:h-32 after:absolute after:bg-sky-400 after:rounded-full after:-z-10 after:blur-xl after:top-24 after:-right-12
+                ">
+                <button type="button" className="absolute left-4 top-4 text-red-400 text-xl cursor-pointer hover:text-red-300" onClick={onClose}>❌</button>
+                <h1 className="text-2xl font-semibold mb-2">Publier un projet</h1>
 
                 <div className="w-full flex flex-col gap-1">
-                    <label htmlFor="title">Titre <span className="text-red-500">*</span></label>
+                    <label htmlFor="title" className="text-sm font-medium text-white">Titre <span className="text-red-500">*</span></label>
                     <input type="text" id="title" name="title" placeholder="Quizz Marvel" required
-                        className="w-full border border-gray-300 rounded-lg px-4 py-2"
+                        className="w-full border border-gray-600 rounded-lg px-4 py-2 bg-gray-700 text-white"
                         value={formProject.title}
                         onChange={(e) =>
                             setFormProject((prev) => ({ ...prev, title: e.target.value }))
@@ -67,12 +66,12 @@ export const ProjectForm = ({ onClose, createProject }: ProjectFormProps) => {
                 </div>
 
                 <div className="w-full flex flex-col gap-1">
-                    <label htmlFor="github">Lien Github <span className="text-red-500">*</span></label>
-                    <p className="text-zinc-500 sm: text-[7px]    sm:text-[10px]  text-xs">
+                    <label htmlFor="github" className="text-sm font-medium text-white">Lien Github <span className="text-red-500">*</span></label>
+                    <p className="text-zinc-300 sm: text-[7px]    sm:text-[10px]  text-xs">
                     💡 Astuce : Pense à ajouter un fichier thumbnail.png à la racine de ton dépôt GitHub.
                     Il sera automatiquement utilisé comme image d’aperçu du projet.</p>
                     <input type="url" id="github" name="github" placeholder="www.github.com" required
-                        className="w-full border border-gray-300 rounded-lg px-4 py-2"
+                        className="w-full border border-gray-600 rounded-lg px-4 py-2 bg-gray-700 text-white"
                         value={formProject.github}
                         onChange={(e) =>
                             setFormProject((prev) => ({ ...prev, github: e.target.value }))
@@ -80,9 +79,9 @@ export const ProjectForm = ({ onClose, createProject }: ProjectFormProps) => {
                 </div>
 
                 <div className="w-full flex flex-col gap-1">
-                    <label htmlFor="demo">Lien Démo</label>
+                    <label htmlFor="demo" className="text-sm font-medium text-white">Lien Démo</label>
                     <input type="url" id="demo" name="demo" placeholder="www.quizz-marvel.vercel.app"
-                    className="w-full border border-gray-300 rounded-lg px-4 py-2"
+                    className="w-full border border-gray-600 rounded-lg px-4 py-2 bg-gray-700 text-white"
                         value={formProject.demo}
                         onChange={(e) =>
                             setFormProject((prev) => ({ ...prev, demo: e.target.value }))
@@ -90,9 +89,9 @@ export const ProjectForm = ({ onClose, createProject }: ProjectFormProps) => {
                 </div>
 
                 <div className="w-full flex flex-col gap-1">
-                    <label htmlFor="promo">Promo <span className="text-red-500">*</span></label>
+                    <label htmlFor="promo" className="text-sm font-medium text-white">Promo <span className="text-red-500">*</span></label>
                     <select name="promo" id="promo" required
-                        className="w-full border border-gray-300 rounded-lg px-4 py-2"
+                        className="w-full border border-gray-600 rounded-lg px-4 py-2 bg-gray-700 text-white"
                         value={formProject.promo}
                         onChange={(e) =>
                             setFormProject((prev) => ({ ...prev, promo: e.target.value }))
@@ -104,9 +103,9 @@ export const ProjectForm = ({ onClose, createProject }: ProjectFormProps) => {
                 </div>
 
                 <div className="w-full flex flex-col gap-1">
-                    <label htmlFor="theme">Catégorie <span className="text-red-500">*</span></label>
+                    <label htmlFor="theme" className="text-sm font-medium text-white">Catégorie <span className="text-red-500">*</span></label>
                     <select name="theme" id="theme" required
-                        className="w-full border border-gray-300 rounded-lg px-4 py-2"
+                        className="w-full border border-gray-600 rounded-lg px-4 py-2 bg-gray-700 text-white"
                         value={formProject.theme}
                         onChange={(e) =>
                             setFormProject((prev) => ({ ...prev, theme: e.target.value }))
