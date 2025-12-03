@@ -13,7 +13,6 @@ export const AutoScrollRow = ({ children }: { children: ReactNode }) => {
         pb-3
       "
     >
-      {/* Dégradé gauche - caché en mobile */}
       <div
         className="
           pointer-events-none
@@ -25,7 +24,6 @@ export const AutoScrollRow = ({ children }: { children: ReactNode }) => {
           hidden sm:block
         "
       />
-      {/* Dégradé droit - caché en mobile */}
       <div
         className="
           pointer-events-none

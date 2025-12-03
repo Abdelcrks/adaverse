@@ -2,12 +2,25 @@
 
 import { useState } from "react";
 
+interface Category {
+    id: number;
+    name: string;
+  }
+  
+  interface Promo {
+    id: number;
+    name: string;
+    dateStart: string;
+    
+  }
 type ProjectFormProps = {
   onClose: () => void;
   createProject: (formData: FormData) => Promise<{ success: boolean; error?: string }>;
+  promos: Promo[];
+  categories: Category[];
 };
 
-export const ProjectForm = ({ onClose, createProject }: ProjectFormProps) => {
+export const ProjectForm = ({ onClose, createProject, promos, categories  }: ProjectFormProps) => {
   const [formError, setFormError] = useState<string | null>(null);
   const [formProject, setFormProject] = useState({
     title: "",
@@ -97,8 +110,11 @@ export const ProjectForm = ({ onClose, createProject }: ProjectFormProps) => {
                             setFormProject((prev) => ({ ...prev, promo: e.target.value }))
                         }>
                         <option value="">Sélectionner</option>
-                        <option value="1">Frida</option>
-                        <option value="2">Graces</option>
+                        {promos.map((promo)=>(
+                                <option key={promo.id} value={promo.id.toString()}>
+                                {promo.name}
+                              </option>
+                        ))}
                     </select>
                 </div>
 
@@ -111,9 +127,11 @@ export const ProjectForm = ({ onClose, createProject }: ProjectFormProps) => {
                             setFormProject((prev) => ({ ...prev, theme: e.target.value }))
                         }>
                         <option value="">Sélectionner</option>
-                        <option value="1">Quizz</option>
-                        <option value="2">Dataviz</option>
-                        <option value="3">Adacheckevent</option>
+                        {categories.map((cat) => (
+                            <option key={cat.id} value={cat.id.toString()}>
+                            {cat.name}
+                            </option>
+                        ))}
                     </select>
                 </div>
 

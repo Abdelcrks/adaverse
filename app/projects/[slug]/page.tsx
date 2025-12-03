@@ -24,6 +24,7 @@ export default async function ProjectPage({
       publishedAt: projects.publishedAt,
       promoName: promos.name,
       categoryName : categories.name,
+      promoDateStart : promos.dateStart,
     })
     .from(projects)
     .innerJoin(promos, eq(promos.id , projects.promoId))

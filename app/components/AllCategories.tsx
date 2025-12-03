@@ -21,6 +21,7 @@ export interface ProjectWithPromo {
     publishedAt: string | null;
     slug: string;
     promoName: string,
+    promoDateStart: string | null,
 }
 
 export interface AllCategoriesProps {

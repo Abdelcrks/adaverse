@@ -38,6 +38,7 @@ export default async function CategoriePage ({
       createdAt: projects.createdAt,
       publishedAt: projects.publishedAt,
       promoName: promos.name,
+      promoDateStart: promos.dateStart
     })
     .from(projects)
     .innerJoin(promos, eq(promos.id , projects.promoId))

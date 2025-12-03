@@ -9,13 +9,19 @@ interface Category {
   id: number,
   name: string,
 }
+interface Promo {
+  id: number;
+  name: string;
+  dateStart: string 
+}
 
 type HeaderProps = {
   categories: Category[];
+  promos: Promo[]
   createProject: (formData: FormData) => Promise<{ success: boolean; error?: string }>;
 };
 
-export const Header = ({ categories, createProject }: HeaderProps) => {
+export const Header = ({ categories,promos, createProject }: HeaderProps) => {
   const router = useRouter()
   const [showForm, setShowForm] = useState(false);
   const [open, setOpen] = useState(false)
@@ -95,7 +101,9 @@ export const Header = ({ categories, createProject }: HeaderProps) => {
         <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/30">
           <ProjectForm 
             onClose={() => setShowForm(false)} 
-            createProject={createProject}  
+            createProject={createProject}
+            promos={promos}
+            categories={categories}  
           />
         </div>
       )}

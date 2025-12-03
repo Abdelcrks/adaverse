@@ -11,6 +11,7 @@ import { Hero } from "./components/Hero";
 
 
 export default async function ProjectsPage() {
+  
   const allCategories = await db.select().from(categories)
   const allProjects = await db
     .select({
@@ -25,6 +26,7 @@ export default async function ProjectsPage() {
       createdAt:projects.createdAt,
       publishedAt: projects.publishedAt,
       promoName: promos.name,
+      promoDateStart: promos.dateStart,
     })
     .from(projects)
     .innerJoin(promos, eq(promos.id, projects.promoId))
