@@ -1,7 +1,7 @@
 import { Poppins, Montserrat } from "next/font/google";
 import "./globals.css";
 import { Header } from "./components/Header";
-import { categories } from "@/src/db/schema";
+import { categories, promos } from "@/src/db/schema";
 import { db } from "@/src/db";
 import { ThemeProvider } from "./components/theme-provider";
 import { createProject } from "@/src/db/action";
@@ -26,6 +26,7 @@ export default async function RootLayout({
 }>) {
 
   const allCategories = await db.select().from(categories);
+  const allPromos = await db.select().from(promos);
 
   return (
     <html lang="en" suppressHydrationWarning>
@@ -34,6 +35,7 @@ export default async function RootLayout({
         <Header 
         categories={allCategories}
         createProject={createProject}
+        promos={allPromos}
         />
         <main className="min-h-screen w-full">
         <div className="w-full max-w-6xl mx-auto px-4 sm:px-6 lg:px-0">
